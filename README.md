@@ -21,9 +21,11 @@ This repository contains the final report, source code, and evaluation results o
 
 ## Citation
 
-If you use this repository, please cite:
+
+If you use this repository, please cite it via:
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15459212.svg)](https://doi.org/10.5281/zenodo.15459212)
+
 
 ---
 
