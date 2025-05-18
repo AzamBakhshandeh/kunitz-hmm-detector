@@ -19,9 +19,11 @@ This repository contains the final report, source code, and evaluation results o
   - MCC ≈ 0.99185
   - FN = 3, FP = 1 (Set1) – FN = 1, FP = 1 (Set2)
 
-## Citation / DOI
+## Citation
 
-(Coming soon via Zenodo after release)
+If you use this repository, please cite:
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15459212.svg)](https://doi.org/10.5281/zenodo.15459212)
 
 ---
 
