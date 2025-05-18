@@ -20,9 +20,12 @@ This repository contains the final report, source code, and evaluation results o
 
 ## Citation
 
-If you use this repository, please cite it via:
+If you use this repository, please cite it as:
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15460121.svg)](https://doi.org/10.5281/zenodo.15460121)
+Azam Bakhshandeh. (2025). *Kunitz HMM Detector: Final report, datasets, and evaluation scripts* (v1.0.0+). Zenodo. https://doi.org/10.5281/zenodo.15459211
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15459211.svg)](https://doi.org/10.5281/zenodo.15459211)
+
 
 ## License
 
