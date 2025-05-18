@@ -4,7 +4,7 @@ This repository contains the final report, source code, and evaluation results o
 
 ## Contents
 
-- 📄 `report.pdf` – Final project report
+- 📄 `kunitz-hmm-project-report.pdf` – Final project report
 - 🧬 `create_hmm_build.sh` – Shell script used to build the HMM
 - 📊 `final_HMM_table.xlsx` – Table showing model performance at different E-value thresholds
 - 💻 `performance.py` – Script for evaluating model accuracy (Q2), MCC, TPR, and PPV
