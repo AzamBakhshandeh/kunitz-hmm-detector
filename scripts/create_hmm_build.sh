@@ -2,7 +2,7 @@
 
 # =========================================
 # Kunitz Domain Detection - Full Pipeline
-# Author: [Your Name]
+# Author: Azam Bakhshandeh
 # Description: End-to-end script to build HMM model,
 # generate datasets, run hmmsearch, and evaluate performance
 # =========================================
