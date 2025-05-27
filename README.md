@@ -24,7 +24,8 @@ If you use this repository, please cite it as:
 
 Azam Bakhshandeh. (2025). *Kunitz HMM Detector: Final report, datasets, and evaluation scripts* (v1.0.0+). Zenodo. https://doi.org/10.5281/zenodo.15459211
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15459211.svg)](https://doi.org/10.5281/zenodo.15459211)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15525977.svg)](https://doi.org/10.5281/zenodo.15525977)
+
 
 
 
