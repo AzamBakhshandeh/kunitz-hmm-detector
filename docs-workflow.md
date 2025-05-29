@@ -185,8 +185,9 @@ After running hmmsearch, we extracted results into .class files to be used for p
 ```bash
 <sequence_id> <label> <full_seq_evalue> <domain_evalue>
 ```
-▶️Label: 1 for positive set, 0 for negative set
-▶️E-values: used to test different threshold cutoffs later
+▶Label: 1 for positive set, 0 for negative set
+
+▶E-values: used to test different threshold cutoffs later
 
 Extract .class files from hmmsearch output:
 
