@@ -292,7 +292,7 @@ To visualize conservation across the aligned sequences, we used the Skylign serv
 
 This figure shows the sequence logo generated from structurally aligned Kunitz domain sequences using the Skylign server.
 
-![Kunitz Sequence Logo](https://raw.githubusercontent.com/AzamBakhshandeh/kunitz-hmm-detector/main/kunitz_logo_skyalign.png)
+![Kunitz Sequence Logo](kunitz_logo_skylign.png)
 
 
 
