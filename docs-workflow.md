@@ -185,8 +185,9 @@ After running hmmsearch, we extracted results into .class files to be used for p
 ```bash
 <sequence_id> <label> <full_seq_evalue> <domain_evalue>
 ```
--Label: 1 for positive set, 0 for negative set
--E-values: used to test different threshold cutoffs later
+▶Label: 1 for positive set, 0 for negative set
+
+▶E-values: used to test different threshold cutoffs later
 
 Extract .class files from hmmsearch output:
 
@@ -236,10 +237,15 @@ python3 performance.py set_2.class 1e-5
 python3 performance.py temp_overall.class 1e-5
 ```
 ▶Each run returns:
+
 ▶Q2 (Accuracy)
+
 ▶MCC (Matthews Correlation Coefficient)
+
 ▶TPR (Sensitivity / Recall)
+
 ▶PPV (Precision)
+
 ▶Confusion Matrix
 
 ---
@@ -279,6 +285,7 @@ The evaluation at threshold 1e-5 yielded the following results:
 To visualize conservation across the aligned sequences, we used the Skylign server.
 
 ▶Input: pdb_kunitz_nr_clean.hmm
+
 ▶Output: Sequence logo plot showing highly conserved residues, especially cysteines forming disulfide bridges.
 
 📎 Example shown in Figure X (e.g., your uploaded logo image)
