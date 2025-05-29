@@ -288,7 +288,7 @@ To visualize conservation across the aligned sequences, we used the Skylign serv
 
 ▶Output: Sequence logo plot showing highly conserved residues, especially cysteines forming disulfide bridges.
 
-📎 Example shown in Figure X (e.g., your uploaded logo image)
+📎 ![Kunitz Sequence Logo](figures/kunitz_logo_skylign.png)
 
 
 ر`````````
