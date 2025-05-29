@@ -59,7 +59,7 @@ This repository contains the final report, source code, datasets, and evaluation
 
 10. Sequence Logo
 
-   - Conserved residues, including cysteines, confirmed via sequence logo (Skulign output, see Figure 3 in report)
+    - Conserved residues, including cysteines, confirmed via sequence logo (Skulign output, see Figure 3 in report)
 
 ## Highlights
 
