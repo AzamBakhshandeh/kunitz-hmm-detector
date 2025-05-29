@@ -13,7 +13,7 @@ This repository contains the final report, source code, datasets, and evaluation
 
 1. Data Retrieval
 
- - Downloaded 151 PDB entries and 190 Pfam sequences (human + non-human)
+  - Downloaded 151 PDB entries and 190 Pfam sequences (human + non-human)
 
 2. Redundancy Removal
 
