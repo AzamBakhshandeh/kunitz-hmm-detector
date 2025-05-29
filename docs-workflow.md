@@ -236,7 +236,7 @@ python3 performance.py set_1.class 1e-5
 python3 performance.py set_2.class 1e-5
 python3 performance.py temp_overall.class 1e-5
 ```
-▶Each run returns:
+🛠Each run returns:
 
 ▶Q2 (Accuracy)
 
