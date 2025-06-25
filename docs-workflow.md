@@ -65,6 +65,9 @@ The aligned sequences were then formatted for HMM model building using the follo
 ```bash
 awk '{if (substr($1,1,1)==">") {print "\n"toupper($1)} else {printf "%s",toupper($1)}}' muscle-....fasta | sed s/PDB:// | tail -n +2 > pdb_kunitz_nr_clean.fasta
 ```
+
+📎 Additionally, the same 25 non-redundant sequences (prior to alignment) were saved in a separate file `pdb_kunitz_nr.fasta`, which was used as the query in the BLAST step to remove overlaps with the evaluation dataset.
+
 ---
 
 ## 🧠 Step 2 – Build HMM Model
@@ -74,13 +77,11 @@ To construct the Hidden Markov Model (HMM) for the Kunitz domain, we first prepa
 📎 The sequences were aligned using the MUSCLE web server in multiple structure alignment mode.
 (https://www.ebi.ac.uk/Tools/msa/muscle/) web server (multiple structure mode).  
 
-📎 The resulting .fasta file was cleaned using awk and sed to remove unnecessary formatting, convert headers to uppercase, and delete the PDB: prefix. The cleaned file was then converted to Stockholm format using esl-reformat:
+📎 The resulting .fasta file was cleaned using awk and sed to remove unnecessary formatting, convert headers to uppercase, and delete the PDB: prefix.
 
 📌 **Command used:**
 ```bash
 awk '{if (substr($1,1,1)==">") {print "\n"toupper($1)} else {printf "%s",toupper($1)}}' input.aln-fasta | sed 's/PDB://' | tail -n +2 > pdb_kunitz_nr_clean.fasta
-
-esl-reformat a2m pdb_kunitz_nr_clean.fasta > pdb_kunitz_nr_clean.ali
 ```
 
 📎 Finally, the profile HMM was built using the hmmbuild tool from the HMMER suite:
@@ -130,7 +131,33 @@ comm -23 <(sort all_kunitz.id) <(sort to_remove.ids) > ok_kunitz.ids
 
 ---
 
-### 🔹 Step 3.3 – Prepare Negative Dataset
+### 🔹 Step 3.3 – Prepare Positive Dataset
+
+After removing overlapping sequences (≥95% identity and ≥50 residues) between the training set and all known Kunitz sequences, the resulting file `ok_kunitz.ids` contained 368 non-redundant, high-confidence Kunitz sequences.
+
+To build two balanced positive sets for evaluation, the following steps were performed:
+
+📌 Command used:
+
+```bash
+sort -r ok_kunitz.ids > random_ok_kunitz.id
+head -n 184 random_ok_kunitz.id > pos_1.id
+tail -n 184 random_ok_kunitz.id > pos_2.id
+```
+
+Finally, sequences were extracted from the Swiss-Prot database:
+
+📌 **Command used:**
+```bash
+python3 get_seq.py pos_1.id uniprot_sprot.fasta > pos_1.fasta
+python3 get_seq.py pos_2.id uniprot_sprot.fasta > pos_2.fasta
+```
+
+✅ This ensured both positive test sets contain clean, non-redundant examples unseen by the HMM model.
+
+---
+
+### 🔹 Step 3.4 – Prepare Negative Dataset
 
 To construct the negative set, we used the uniprot_sprot.fasta file (UniProtKB/Swiss-Prot full database). All entries that did not appear in all_kunitz.fasta were extracted using the following commands:
 
@@ -236,23 +263,36 @@ python3 performance.py set_1.class 1e-5
 python3 performance.py set_2.class 1e-5
 python3 performance.py temp_overall.class 1e-5
 ```
+
+📎 The script `performance.py` evaluates classification results using various statistical metrics. It takes three arguments:
+
+1️⃣ Input `.class` file – tab-delimited with the following format:  
+<sequence_id> <label> <full_seq_evalue> <domain_evalue>
+
+
 🛠Each run returns:
 
-▶Q2 (Accuracy)
+- `label`: 1 for positive, 0 for negative
+- `e-values`: numeric scores from `hmmsearch`
 
-▶MCC (Matthews Correlation Coefficient)
+2️⃣ Threshold – the e-value cutoff to decide classification  
+3️⃣ (Optional) Verbosity flag: `1` prints results to screen (used in Bash script)
 
-▶TPR (Sensitivity / Recall)
+📌 The script computes:
 
-▶PPV (Precision)
+- Q2: Overall accuracy
+- MCC: Matthews Correlation Coefficient
+- TPR: True Positive Rate (Sensitivity / Recall)
+- PPV: Positive Predictive Value (Precision)
+- Confusion Matrix: TP, TN, FP, FN
 
-▶Confusion Matrix
 
 ---
 
 ### 🔹 Step 6.3 – Optimal Threshold Search (Optional but Recommended)
 
 To identify the best threshold:
+📌 The command extracts the row with the highest MCC (column 6) among all tested thresholds by filtering the output of `performance.py`.
 
 📌 **Command used:**
 ```bash
