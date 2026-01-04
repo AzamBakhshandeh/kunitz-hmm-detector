@@ -49,3 +49,10 @@ If you use this repository, please cite:
 ## ⚖️ License
 
 This project is licensed under the MIT License.
+
+---
+
+## 👩‍💻 Author
+**Azam Bakhshandeh**  
+MSc Bioinformatics — University of Bologna
+
